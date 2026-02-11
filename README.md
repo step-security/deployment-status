@@ -2,7 +2,7 @@
 
 A GitHub action to update the status of [Deployments](https://developer.github.com/v3/repos/deployments/) as part of your GitHub CI workflows.
 
-Works great with my other action to create Deployments, [chrnorm/deployment-action](https://github.com/chrnorm/deployment-action).
+Works great with our other action to create Deployments, [step-security/deployment-action](https://github.com/step-security/deployment-action).
 
 ## Action inputs
 
@@ -21,7 +21,7 @@ Works great with my other action to create Deployments, [chrnorm/deployment-acti
 
 ## Usage example
 
-The below example includes `chrnorm/deployment-action` and `step-security/deployment-status` to create and update a deployment within a workflow.
+The below example includes `step-security/deployment-action` and `step-security/deployment-status` to create and update a deployment within a workflow.
 
 ```yaml
 name: Deploy
@@ -39,9 +39,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v6
 
-      - uses: chrnorm/deployment-action@v2
+      - uses: step-security/deployment-action@v2
         name: Create GitHub deployment
         id: deployment
         with:
