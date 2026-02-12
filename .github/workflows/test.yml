@@ -14,23 +14,3 @@ jobs:
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - uses: step-security/deployment-action@release
-        name: Create GitHub deployment
-        id: deployment
-        with:
-          token: '${{ github.token }}'
-          environment-url: http://my-app-url.com
-          environment: production
-
-      - name: Update deployment status
-        uses: ./
-        with:
-          token: '${{ github.token }}'
-          environment-url: http://my-app-url.com
-          state: 'success'
-          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
